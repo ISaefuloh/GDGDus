@@ -1,0 +1,27 @@
+{% extends 'GDGDus/base.html' %}
+{% block title %}List Dus{% endblock %}
+
+ <!-- Halaman Daftar Stok -->
+ {% block content %}
+ <div class="container mt-4">
+     <h2>Daftar Dus</h2>
+     <a href="{% url 'dus-create' %}" class="btn btn-primary mb-3">Tambah Dus</a>
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th>Tipe</th>
+                 <th>Stok</th>
+             </tr>
+         </thead>
+         <tbody>
+             {% for dus in dus_list %}
+             <tr>
+                 <td>{{ dus.tipe }}</td>
+                 <td>{{ dus.stok_tersedia }}</td>
+                
+             </tr>
+             {% endfor %}
+         </tbody>
+     </table>
+ </div>
+ {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'GDGDus/base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <h2>Daftar Merek</h2>
+        <a href="{% url 'merek-create' %}" class="btn btn-primary mb-3">Tambah Merek</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nama Merek</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for merek in merek_list %}
+                <tr>
+                    <td>{{ merek.nama }}</td>
+                    <td>
+                        <a href="{% url 'merek-update' merek.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'merek-delete' merek.id %}" class="btn btn-danger btn-sm">Hapus</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

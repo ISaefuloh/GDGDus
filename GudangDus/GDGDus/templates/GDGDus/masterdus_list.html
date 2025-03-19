@@ -1,0 +1,32 @@
+{% extends 'GDGDus/base.html' %}
+{% block title %}List Master Dus{% endblock %}
+
+ <!-- Halaman Daftar Stok -->
+ {% block content %}
+ <div class="container mt-4">
+     <h2>Daftar Master Dus</h2>
+     <a href="{% url 'masterdus-create' %}" class="btn btn-primary mb-3">Tambah Master Dus</a>
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th>Tipe</th>
+                 <th>Merek</th>
+                 <th>Aksi</th>
+             </tr>
+         </thead>
+         <tbody>
+             {% for masterdus in masterdus_list %}
+             <tr>
+                 <td>{{ masterdus.tipe }}</td>
+                 <td>{{ masterdus.merek }}</td>
+                 <td>
+                    <a href="{% url 'masterdus-update' masterdus.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'masterdus-delete' masterdus.id %}" class="btn btn-danger btn-sm">Hapus</a>
+                </td>
+                
+             </tr>
+             {% endfor %}
+         </tbody>
+     </table>
+ </div>
+ {% endblock %}

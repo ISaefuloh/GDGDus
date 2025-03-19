@@ -1,0 +1,27 @@
+{% extends 'GDGDus/base.html' %}
+{% block title %}Laporan Transaksi Masuk{% endblock %}
+
+ <!-- Halaman Daftar Stok -->
+ {% block content %}
+ <div class="container mt-4">
+     <h2>Laporan Transaksi Masuk</h2>
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th>Tanggal</th>
+                 <th>Tipe</th>
+                 <th>Jumlah Masuk</th>
+             </tr>
+         </thead>
+         <tbody>
+             {% for transaksimasuk in transaksimasuk_list %}
+             <tr>
+                 <td>{{ transaksimasuk.tanggal }}</td>
+                 <td>{{ transaksimasuk.tipe }}</td>
+                 <td>{{ transaksimasuk.jumlah_masuk }}</td>
+             </tr>
+             {% endfor %}
+         </tbody>
+     </table>
+ </div>
+ {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'GDGDus/base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Hapus Merek</h2>
+        <p>Apakah Anda yakin ingin menghapus merek <strong>{{ merek.nama }}</strong>?</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+            <a href="{% url 'merek-list' %}" class="btn btn-secondary">Batal</a>
+        </form>
+    </div>
+{% endblock %}

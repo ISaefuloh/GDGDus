@@ -1,0 +1,49 @@
+{% extends 'GDGDus/base.html' %}
+{% block title %}Stok Dus{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Laporan Stok</h2>
+
+    <!-- Form Filter Periode Tanggal -->
+    <form method="GET" class="mb-3">
+        <label for="tanggal_mulai">Dari:</label>
+        <input type="date" name="tanggal_mulai" id="tanggal_mulai" value="{{ tanggal_mulai }}">
+        
+        <label for="tanggal_selesai">Sampai:</label>
+        <input type="date" name="tanggal_selesai" id="tanggal_selesai" value="{{ tanggal_selesai }}">
+
+        <button type="submit" class="btn btn-primary btn-sm">Filter</button>
+    </form>
+
+    <p><strong>Periode:</strong> {{ tanggal_mulai }} - {{ tanggal_selesai }}</p>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tipe Kardus</th>
+                <th>Stok Awal</th>
+                <th>Masuk</th>
+                <th>Keluar</th>
+                <th>Stok Akhir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stok in stok_list %}
+            <tr>
+                <td>{{ stok.tipe__tipe__tipe }}</td>  <!-- Menggunakan tipe__tipe -->
+                <td>{{ stok.total_stok_awal }}</td>
+                <td>{{ stok.total_stok_masuk }}</td>
+                <td>{{ stok.total_stok_keluar }}</td>
+                <td>{{ stok.total_stok_akhir }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">Tidak ada data stok untuk periode ini.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

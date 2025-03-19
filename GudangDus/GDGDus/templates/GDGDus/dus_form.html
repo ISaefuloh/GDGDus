@@ -1,0 +1,14 @@
+{% extends 'GDGDus/base.html' %}
+{% block title %}Dus Form{% endblock %}
+
+<!-- Halaman Form Dus -->
+{% block content %}
+<div class="container mt-4">
+    <h2>Dus Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
+</div>
+{% endblock %}
